@@ -5,6 +5,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  position: relative;
 }
 
 .description {
@@ -73,11 +74,9 @@
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
+  position: absolute;
+  top: calc((100% - 480px)/2);
+  left: 50%;
 }
 
 .center::before {
@@ -104,51 +103,151 @@
   transform: translateZ(0);
 }
 
-.logo,
-.thirteen {
-  position: relative;
-}
-
-.thirteen {
+.links {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75px;
-  height: 75px;
-  padding: 25px 10px;
-  margin-left: 16px;
-  transform: translateZ(0);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0px 2px 8px -1px #0000001a;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.thirteen::before,
-.thirteen::after {
-  content: '';
+@media screen and (max-width: 768px) {
+  .links {
+    flex-direction: column;
+
+  }
+
+  .links a {
+    width: 100%;
+  }
+
+  .main {
+    padding: 6rem 2rem;
+  }
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0.1);
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  transition: background 200ms, border 200ms;
+
+  font-family: var(--font-mono);
+}
+
+.links a:hover {
+  background: rgba(var(--card-rgb), 0.2);
+  border: 1px solid rgba(var(--card-border-rgb), 0.25);
+}
+
+.bottomPopup {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  margin-left: 1rem;
+  z-index: 100;
+
+  min-width: 25%;
+  max-width: 400px;
+
+  background: rgba(var(--card-rgb), 0.1);
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+  font-family: var(--font-mono);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 200ms, border 200ms
+}
+
+.bottomPopupContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bottomPopupContent p {
+  margin: 0;
+  opacity: 0.6;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.bottomPopupContent a {
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.closeButton {
   position: absolute;
-  z-index: -1;
+  top: 1rem;
+  right: 1.2rem;
+
+  width: 1rem;
+  height: 1rem;
+  padding: .8rem;
+
+  background-color: rgba(var(--card-rgb) 0.2);
+  border-radius: 50%;
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  box-sizing: border-box;
+  color: white !important; 
 }
 
-/* Conic Gradient Animation */
-.thirteen::before {
-  animation: 6s rotate linear infinite;
-  width: 200%;
-  height: 200%;
-  background: var(--tile-border);
+.closeButton:hover {
+  background-color: rgba(var(--card-rgb) 0.3);
 }
 
-/* Inner Square */
-.thirteen::after {
-  inset: 0;
-  padding: 1px;
-  border-radius: var(--border-radius);
-  background: linear-gradient(
-    to bottom right,
-    rgba(var(--tile-start-rgb), 1),
-    rgba(var(--tile-end-rgb), 1)
-  );
-  background-clip: content-box;
+.closeButton div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.closeButton svg {
+  position: relative;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.centeredDescription {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 100;
+}
+
+@media screen and (max-width: 768px) {
+  .centeredDescription {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.centeredDescription p {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
 }
 
 /* Enable hover only on non-touch devices */
@@ -177,13 +276,6 @@
 @media (max-width: 1023px) {
   .content {
     padding: 4rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
   }
 
   .card {
