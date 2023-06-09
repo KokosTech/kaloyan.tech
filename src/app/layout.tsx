@@ -1,11 +1,11 @@
 import { Analytics } from "@vercel/analytics/react";
 
-import "./globals.css";
+import "@/styles/globals.css";
 
 export const metadata = {
-  title: "Kaloyan Doychinov | Porfolio",
-  description:
-    "Porfolio of Kaloyan Doychinov, a software developer and a student at TUES",
+  title: "",
+  description: "",
+  
 };
 
 export default function RootLayout({
