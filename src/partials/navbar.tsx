@@ -4,6 +4,16 @@ import { EMAIL, SOCIALS } from "@/constants/socials";
 
 import styles from "@/styles/partials/navbar.module.css";
 
+const Social = ({ href, name }: { href: string; name: string }) => {
+  return (
+    <li>
+      <Link href={href}>
+        <p>{name}</p>
+      </Link>
+    </li>
+  );
+};
+
 const Navbar = () => {
   return (
     <div className={styles.navWrapper}>
@@ -18,11 +28,7 @@ const Navbar = () => {
         </Link>
         <ul className={styles.socials}>
           {SOCIALS.map((social) => (
-            <li key={social.name}>
-              <Link href={social.url}>
-                <p>{social.name}</p>
-              </Link>
-            </li>
+            <Social key={social.url} href={social.url} name={social.name} />
           ))}
         </ul>
       </nav>
