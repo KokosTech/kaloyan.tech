@@ -5,7 +5,7 @@ import "@/styles/globals.css";
 export const metadata = {
   title: "",
   description: "",
-  
+  themeColor: "#161616",
 };
 
 export default function RootLayout({

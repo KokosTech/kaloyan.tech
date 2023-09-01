@@ -22,6 +22,32 @@
   z-index: 10;
 }
 
+@media screen and (max-width: 1024px) {
+  .navWrapper {
+    padding: 0.5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navWrapper {
+    padding: 0.5rem 2rem;
+    top: unset;
+    bottom: 0;
+    flex-direction: column-reverse;
+  }
+
+  .navbar {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: unset;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
+  }
+}
+
 .mail {
   display: flex;
   align-items: center;
