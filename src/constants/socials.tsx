@@ -1,24 +1,24 @@
 import {
-  TbBrandGithub,
-  TbBrandInstagram,
-  TbBrandLinkedin,
-} from "react-icons/tb";
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 
 export const SOCIALS = [
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/kaloyand/",
-    icon: <TbBrandLinkedin />,
+    icon: <IconBrandLinkedin />,
   },
   {
     name: "GitHub",
     url: "https://github.com/KokosTech",
-    icon: <TbBrandGithub />,
+    icon: <IconBrandGithub />,
   },
   {
     name: "Instagram",
     url: "https://www.instagram.com/kaloyanx/",
-    icon: <TbBrandInstagram />,
+    icon: <IconBrandInstagram />,
   },
 ];
 

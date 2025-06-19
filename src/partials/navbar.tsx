@@ -1,7 +1,7 @@
+import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
-import { TbMail } from "react-icons/tb";
-import { EMAIL, SOCIALS } from "@/constants/socials";
 
+import { EMAIL, SOCIALS } from "@/constants/socials";
 import styles from "@/styles/partials/navbar.module.css";
 
 const Social = ({ href, name }: { href: string; name: string }) => {
@@ -20,7 +20,7 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <Link href={`mailto:${EMAIL}`} className={styles.mail}>
           <div className={styles.mailButton}>
-            <TbMail />
+            <IconMail />
           </div>
           <p>
             kaloyan@<span>kaloyan.tech</span>
